@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuyệnThi24h - Ôn thi THPT Quốc Gia</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fdf2f8;
+}
+
+/* NAV */
+nav{
+    background: linear-gradient(90deg, #fbcfe8, #ddd6fe, #bae6fd);
+    padding:15px 0;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.nav-left{
+    position:absolute;
+    left:40px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:55px;
+}
+
+.brand-text h2{
+    margin:0;
+    font-size:20px;
+    color:#4c1d95;
+}
+
+.brand-text p{
+    margin:0;
+    font-size:12px;
+    color:#6b21a8;
+}
+
+.nav-center{
+    display:flex;
+    gap:50px;
+}
+
+nav a{
+    color:#4c1d95;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#db2777;
+}
+
+/* CONTAINER */
+.container{
+    padding:40px;
+    text-align:center;
+    animation: fade 0.4s ease-in-out;
+}
+
+.hidden{
+    display:none;
+}
+
+/* CARD */
+.card{
+    background:white;
+    padding:20px;
+    margin:15px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    display:inline-block;
+    width:200px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:#fce7f3;
+}
+
+/* BOX */
+.box{
+    background:white;
+    max-width:800px;
+    margin:20px auto;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    text-align:left;
+}
+
+.section-title{
+    color:#7c3aed;
+}
+
+ul{
+    line-height:1.8;
+}
+
+button{
+    padding:8px 15px;
+    background:#c4b5fd;
+    color:#4c1d95;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#a78bfa;
+}
+
+/* STRUCTURE PAGE */
+.structure-title{
+    color:#6b21a8;
+}
+
+/* FOOTER */
+footer{
+    background: linear-gradient(90deg, #fbcfe8, #ddd6fe, #bae6fd);
+    color:#4c1d95;
+    padding:20px;
+    margin-top:350px;
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-left">
+        <img src="chobeo.png" class="logo">
+        <div class="brand-text">
+            <h2>LuyệnThi24h</h2>
+            <p>Ôn thi THPT Quốc Gia - Tổ hợp A00</p>
+        </div>
+    </div>
+
+    <div class="nav-center">
+        <a onclick="goHome()">Trang chủ</a>
+        <a onclick="showStructure()">Cấu trúc đề</a>
+    </div>
+</nav>
+
+<!-- HOME -->
+<div id="homePage" class="container">
+<h2 style="color:#7c3aed;">Chọn môn học</h2>
+
+<div class="card" onclick="showSubject('Toán')">📘 Toán</div>
+<div class="card" onclick="showSubject('Ngữ Văn')">📖 Ngữ Văn</div>
+<div class="card" onclick="showSubject('Vật Lý')">🔬 Vật Lý</div>
+<div class="card" onclick="showSubject('Hóa Học')">🧪 Hóa Học</div>
+</div>
+
+<!-- SUBJECT -->
+<div id="subjectPage" class="container hidden">
+<h2 id="subjectTitle" style="color:#7c3aed;"></h2>
+
+<div class="box">
+<h3 class="section-title">📚 Kiến thức trọng tâm</h3>
+<ul id="subjectContent"></ul>
+</div>
+
+<div class="box">
+<h3 class="section-title">📄 File đề ôn tập</h3>
+<ul id="subjectFiles"></ul>
+</div>
+
+<button onclick="goHome()">⬅ Quay lại Trang chủ</button>
+</div>
+
+<!-- STRUCTURE -->
+<div id="structurePage" class="container hidden">
+<h2 class="structure-title">Cấu trúc đề thi THPT Quốc Gia</h2>
+
+<div class="box">
+<h3 class="section-title">📑 Cấu trúc từng môn</h3>
+<ul>
+<li>Toán, Lý, Hóa: 12 câu trắc nghiệm - 4 câu đúng/sai - 6 câu trả lời ngắn</li>
+<li>Ngữ Văn: Đọc hiểu (5 câu) + Viết văn nghị luận xã hội và văn học(2 câu)</li>
+</ul>
+</div>
+<div class="box">
+<h3 class="section-title">🧮 Cách tính điểm</h3>
+<ul>
+<h4> Đối với Toán,Lý,Hóa</h4>
+<li>12 câu trắc nghiệm,mỗi câu được 0.25=>12 câu 3 điểm.</li>
+<li>4 câu đúng sai.Mỗi câu 4 ý,đúng 1 ý được 0.1 , 2 ý được 0.25 , 3 ý được 0.5 , 4 ý được 1 điểm=> 4 câu 4 điểm.</li>
+<li>6 câu trả lời ngắn,mỗi câu được 0.5 điểm => 6 câu 3 điểm.</li>
+<h4>Đối với Ngữ Văn</h4>
+<li>Phần 1 Đọc hiểu,5 câu 4 điểm.
+<li>Phần 2 Viết,2 câu 6 điểm.
+</ul>
+</div>
+<div class="box">
+<h3 class="section-title">⏰ Thời gian làm bài</h3>
+<ul>
+<li>Toán:90 phút</li>
+<li>Ngữ Văn:120 phút</li>
+<li>Lý,Hóa 50 phút/môn</li>
+</ul>
+</div>
+
+<button onclick="goHome()">⬅ Quay lại Trang chủ</button>
+</div>
+
+<script>
+function goHome(){
+    homePage.classList.remove("hidden");
+    subjectPage.classList.add("hidden");
+    structurePage.classList.add("hidden");
+}
+
+function showStructure(){
+    homePage.classList.add("hidden");
+    subjectPage.classList.add("hidden");
+    structurePage.classList.remove("hidden");
+}
+
+function showSubject(subject){
+    homePage.classList.add("hidden");
+    structurePage.classList.add("hidden");
+    subjectPage.classList.remove("hidden");
+
+    subjectTitle.innerHTML = "Môn " + subject;
+
+    let content="";
+    let files="";
+
+    if(subject==="Toán"){
+        content=`
+        <li>Giá trị lớn nhất,nhỏ nhất,đường tiệm cận,đồ thị hàm số</li>
+        <li>Đạo hàm-Ứng dụng của đạo hàm</li>
+        <li>Hàm số Lũy Thừa,Mũ,Logarit</li>
+        <li>Nguyên Hàm-Tích Phân</li>
+        <li>Hình học không gian Oxyz</li>
+        <li>Phương trình mặt phẳng,phương trình đường thẳng,phương trình mặt cầu,công thức tính góc</li>
+        <li>Xác suất - Thống kê</li>`
+        files=`<li><a href="bacninh.pdf">Đề minh hoạ trường chuyên Bắc Ninh</a></li>` 
+    }
+
+    if(subject==="Ngữ Văn"){
+        content=`<li>Đọc hiểu văn bản</li>
+        <li>Nghị luận xã hội</li>
+        <li>Nghị luận văn học</li>`;
+        files=`<li><a href="#">Đề minh họa Văn</a></li>`;
+    }
+
+    if(subject==="Vật Lý"){
+        content=`<li>Dao động cơ</li>
+        <li>Sóng cơ</li>`;
+        files=`<li><a href="#">Đề minh họa Lý</a></li>`;
+    }
+
+    if(subject==="Hóa Học"){
+        content=`<li>Este - Lipit</li>
+        <li>Kim loại</li>`;
+        files=`<li><a href="#">Đề minh họa Hóa</a></li>`;
+    }
+
+    subjectContent.innerHTML=content;
+    subjectFiles.innerHTML=files;
+}
+</script>
+
+<footer>
+<h6>© 2026 Website ôn thi THPT Quốc Gia</h6>
+<h6>Liên hệ email:phamvietdat2612@gmail.com</h6>
+<h6>Thuộc sở hữu bởi nhóm 5-lớp 12/3-trường THPT Ông Ích Khiêm</h6>
+<h6>Các nguồn tham khảo:thầy Nhất Linh</h6>
+</footer>
+
+</body>
+</html>
